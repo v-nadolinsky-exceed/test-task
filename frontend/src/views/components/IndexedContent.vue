@@ -11,7 +11,6 @@
           <b-list-group-item href="#">{{ content }}</b-list-group-item>
         </b-list-group>
       </b-card>
-
       <b-card 
           header="h2"
           class="content__item"
@@ -21,7 +20,6 @@
           <b-list-group-item href="#">{{ content }}</b-list-group-item>
         </b-list-group>
       </b-card>
-
       <b-card 
           header="h3"
           class="content__item"
@@ -31,7 +29,6 @@
           <b-list-group-item href="#">{{ content }}</b-list-group-item>
         </b-list-group>
       </b-card>
-
       <b-card 
           header="link"
           class="content__item"
@@ -76,7 +73,11 @@ export default {
       return array;
     }
   },
-  methods: {}
+  mounted() {
+    if(!this.$store.state.content.address){
+      this.$router.push('/');
+    } 
+  }
 }
 </script>
 
