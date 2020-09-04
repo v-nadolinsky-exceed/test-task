@@ -18,8 +18,8 @@ export default {
   margin: 0 !important;
   text-align: center;
   color: #2c3e50;
-  height: 100vh;
-  width: 100vw;
-  background: linear-gradient(225deg, rgb(62, 175, 132), rgb(53, 73, 94));
+  /*height: 100vh;*/
+  /*width: 100vw;*/
+  /*background: linear-gradient(225deg, rgb(62, 175, 132), rgb(53, 73, 94));*/
 }
 </style>

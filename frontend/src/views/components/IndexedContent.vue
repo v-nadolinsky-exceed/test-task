@@ -1,6 +1,4 @@
 <template>
-  <div class="component-wrap">
-    <h1 class="component-title">Indexed content</h1>
     <b-card-group deck class="content">
       <b-card 
           header="h1" 
@@ -44,10 +42,7 @@
             :per-page="perPage"
         ></b-pagination>
       </b-card>
-      
     </b-card-group>
-    <router-link class="link" to="/">Home</router-link>
-  </div>
 </template>
 
 <script>
@@ -72,27 +67,13 @@ export default {
       }).filter((e) =>  e );
       return array;
     }
-  },
-  mounted() {
-    if(!this.$store.state.content.address){
-      this.$router.push('/');
-    } 
   }
 }
 </script>
 
 <style>
-.component-wrap {
-  padding: 20px;
-  background: linear-gradient(225deg, rgb(62, 175, 132), rgb(53, 73, 94));
-}
-
-.component-title {
-  color: #386468;
-  font-weight: bold;
-}
-
 .content {
+  margin-top: 50px;
   display: flex ;
   flex-direction: column !important;
 }

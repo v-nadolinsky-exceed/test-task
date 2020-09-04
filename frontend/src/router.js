@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import SearchURL from "@/views/components/SearchURL";
-import IndexedContent from "@/views/components/IndexedContent";
+import ListIndexedPages from "@/views/components/ListIndexedPages";
 
 Vue.use(Router)
 
@@ -14,9 +14,9 @@ export default new Router({
       component: SearchURL
     },
     {
-      path: '/content',
-      name: 'IndexedContent',
-      component: IndexedContent
+      path: '/list',
+      name: 'ListIndexedPages',
+      component: ListIndexedPages
     }
   ]
 })

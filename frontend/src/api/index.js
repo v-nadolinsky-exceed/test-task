@@ -13,5 +13,5 @@ axios.interceptors.request.use((config) => {
 });
 
 export const indexed = {
-  post: indexedRequest.post
+  find: indexedRequest.find
 }

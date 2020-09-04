@@ -4,15 +4,23 @@ const axios = require('axios');
 
 
 const indexedContentControllers = {
-  post: () => {
+  find: () => {
     return async (req, res) => {
       try {
-      	let url;
-      	if ( req.body.url.includes('http') ) url = req.body.url
-				else if( req.body.url.includes('www.') ) url = req.body.url.replace(/^www./g, 'https://')
-				else  url = 'https://' + req.body.url
+				let url;
+      	if (req.body.url) {
+					if ( req.body.url.includes('http') ) url = req.body.url
+					else if( req.body.url.includes('www.') ) url = req.body.url.replace(/^www./g, 'https://')
+					else  url = 'https://' + req.body.url
+				}
+      	
+				const query = {
+					address:  url
+				}
+      	
+				Object.keys(query).forEach((key) => !query[key] && delete query[key]);
 				
-        IndexedContent.find({ address: url }, async (error, content) => {
+        IndexedContent.find(query, async (error, content) => {
           if (error) return res.status(400).send(error);
           try{
 						if (!content.length) {
@@ -59,7 +67,7 @@ const indexedContentControllers = {
 							const savedContent = await indexedContent.save();
 							return res.status(200).send(savedContent);
 						} else {
-							return res.status(200).send(...content);
+							return res.status(200).send(content);
 						}
 					} catch (error) {
 						res.status(400).send(error);
